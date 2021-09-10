@@ -1,1 +1,50 @@
-int 
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef struct fushu{
+	int shi;
+	int xu;
+}fushu;
+
+void Add(fushu &f1,fushu &f2,fushu &f3);
+void Munst(fushu &f1,fushu &f2,fushu &f3);
+fushu Setup(int &shi,int &xu);
+
+int main(){
+	fushu f1;
+	int shi=1;
+	int xu=1;
+	f1=Setup(shi,xu);
+	printf("%d+%di",f1.shi,f1.xu);
+} 
+
+//创建操作
+fushu Setup(int &shi,int &xu) {
+	fushu f1;
+	f1.shi=shi;
+	f1.xu=xu;
+	return f1;
+}
+
+//相加操作 
+void Add(fushu &f1,fushu &f2,fushu &f3){
+	f3.shi=f1.shi+f2.shi;
+	f3.xu=f1.xu+f2.xu;
+	printf("复数相加的结果是：%d+%di",f3.shi,f3.xu);
+}
+
+//相减操作,第一个复数减去第二个复数 
+void Munst(fushu &f1,fushu &f2,fushu &f3){
+	f3.shi=f1.shi-f2.shi;
+	f3.xu=f1.xu-f2.xu;
+	printf("复数相减的结果是：%d+%di",f3.shi,f3.xu);
+}
+
+//相乘操作，实部ac-bd,虚部bc+ad;
+void chengfa(fushu &f1,fushu *f2,fushu &f3){
+	f3.shi=f1.shi*f2.shi-f1.xu*f2.xu;
+	f3.xu=f1.xu*f2.shi+f1.shi*f2.xu;
+	printf("复数相乘的结果是：%d+%di",f3.shi,f3.xu);
+} 
+
+//除法操作， 
